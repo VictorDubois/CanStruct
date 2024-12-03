@@ -43,7 +43,7 @@ struct ServoMessage {
 };
 
 struct Score {
-    uint32_t score;  // 4 bytes
+    uint8_t score;  // 1 byte
 };
 
 struct DigitalOutputs {
@@ -99,6 +99,19 @@ struct SpeedOdometry {
     float speedVx_m_s ; // 4 bytes
     float speedWz_rad_s ; // 4 bytes
 };
+
+struct Stepper {
+    uint16_t speed; // mm/s 0 => disable
+    uint16_t accel; // mm/s²
+    int16_t position; // mm
+    uint8_t current; // *50mA
+    uint8_t mode; // 0 => disable, 10 => position, 20 => speed, 30 => homing
+};
+
+struct StepperInfo {
+    uint16_t distance_to_go; // mm
+};
+
 #pragma pack(pop)
 
 /*
