@@ -10,6 +10,9 @@ enum can_ids {
   SERVO_5, // ServoMessage
   SERVO_6, // ServoMessage
   SERVO_7, // ServoMessage
+
+  STEPPER_CMD, // Stepper
+  STEPPER_INFO, // StepperInfo
   
   // 10/20Hz
   CMD_VEL, // CmdVel
@@ -27,6 +30,13 @@ enum can_ids {
   ANALOG_SENSORS = 60, // AnalogSensors
   
   SCORE=100 // Score
+};
+
+enum stepper_mode {
+  DISABLE=0,
+  POSITION=10,
+  SPEED=20,
+  HOMING=30
 };
 
 
@@ -110,6 +120,7 @@ struct Stepper {
 
 struct StepperInfo {
     uint16_t distance_to_go; // mm
+    uint8_t homing_sequences_done; // mm
 };
 
 #pragma pack(pop)
