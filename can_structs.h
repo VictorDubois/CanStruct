@@ -125,7 +125,8 @@ namespace CAN
 
 	struct StepperInfo {
 		uint16_t distance_to_go; // mm
-		uint8_t homing_sequences_done; // mm
+		uint8_t homing_sequences_done;
+		uint8_t homing_switches_on;
 	};
 
 	struct MotorEnable{
