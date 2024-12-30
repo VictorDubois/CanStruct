@@ -20,6 +20,7 @@ namespace CAN
 
 	  // 10/20Hz
 	  CMD_VEL, // CmdVel
+	  CMD_VEL_FLOAT, // CmdVelFloat
 
 	  // High frequency, ~100Hz
 	  ODOMETRY_XY, // OdometryXY
