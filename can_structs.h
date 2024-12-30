@@ -74,9 +74,14 @@ namespace CAN
 		int16_t vacuum_3; // 2 bytes
 	};
 
-	struct CmdVel {
+	struct CmdVelFloat {
 		float linear_x_m ; // 4 bytes
 		float angular_z_rad ; // 4 bytes
+	};
+
+	struct CmdVel {
+		int32_t linear_x_µm_s ; // 4 bytes
+		int32_t angular_z_µrad_s ; // 4 bytes
 	};
 
 	struct MotorBoardCurrentInput {
