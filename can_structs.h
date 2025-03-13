@@ -34,6 +34,7 @@ namespace CAN
 	  MOTOR_BOARD_ENABLE, // MotorEnable
 
 	  ANALOG_SENSORS = 60, // AnalogSensors
+	  MOTOR_BOARD_BATTERY = 61, // AnalogSensors
 
 	  SCORE=100 // Score
 	};
