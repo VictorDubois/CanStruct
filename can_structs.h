@@ -35,6 +35,7 @@ namespace CAN
 
 	  ANALOG_SENSORS = 60, // AnalogSensors
 	  MOTOR_BOARD_BATTERY = 61, // AnalogSensors
+	  DIGITAL_INPUTS, // DigitalInputs
 
 	  SCORE=100 // Score
 	};
@@ -61,6 +62,11 @@ namespace CAN
 
 	struct Score {
 		uint8_t score;  // 1 byte
+	};
+
+  struct DigitalInputs {
+		// array of inputs
+		int8_t digital_inputs; // 1 byte
 	};
 
 	struct DigitalOutputs {
