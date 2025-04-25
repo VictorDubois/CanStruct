@@ -62,6 +62,10 @@ namespace CAN
 
 	struct Score {
 		uint8_t score;  // 1 byte
+		int8_t _unused;// 1 bytes
+		int16_t _unused2;// 2 bytes
+		int32_t _unused3;// 4 bytes
+
 	};
 
   struct DigitalInputs {
@@ -73,6 +77,10 @@ namespace CAN
 		// array of ouputs
 		int16_t enable_outputs; // 2 bytes
 		int8_t enable_power; // 1 byte
+		int8_t _unused;// 1 bytes
+		int32_t _unused2;// 4 bytes
+
+
 	};
 
 	struct AnalogSensors {
@@ -96,6 +104,7 @@ namespace CAN
 		int16_t max_current_left_mA; // 2 bytes
 		int16_t max_current_right_mA; // 2 bytes
 		int16_t max_current_mA; // 2 bytes
+		int16_t _unused;// 2 bytes
 	};
 
 	struct MotorBoardCmdInput {
@@ -104,6 +113,7 @@ namespace CAN
 		int16_t PWM_override_left; // 2 bytes - valeur brute à envoyer au PWM
 		int16_t PWM_override_right; // 2 bytes - valeur brute à envoyer au PWM
 		int8_t reset_encoders; // 1 bytes
+		int8_t _unused;// 1 bytes
 	};
 
 
@@ -121,6 +131,7 @@ namespace CAN
 
 	struct OdometryTheta {
 		float angleRz ; // 4 bytes
+		int32_t _unused;// 4 bytes
 	};
 
 	struct SpeedOdometry {
@@ -140,10 +151,16 @@ namespace CAN
 		uint16_t distance_to_go; // mm
 		uint8_t homing_sequences_done;
 		uint8_t homing_switches_on;
+		int32_t _unused;// 4 bytes
+
 	};
 
 	struct MotorEnable{
 		uint8_t motor_enable;
+		int8_t _unused;// 1 bytes
+		int16_t _unused2;// 2 bytes
+		int32_t _unused3;// 4 bytes
+
 	};
 
 	#pragma pack(pop)
