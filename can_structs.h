@@ -71,6 +71,9 @@ namespace CAN
   struct DigitalInputs {
 		// array of inputs
 		int8_t digital_inputs; // 1 byte
+		int8_t _unused;// 1 bytes
+		int16_t _unused2;// 2 bytes
+		int32_t _unused3;// 4 bytes
 	};
 
 	struct DigitalOutputs {
