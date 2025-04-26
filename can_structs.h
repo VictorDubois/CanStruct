@@ -15,6 +15,20 @@ namespace CAN
 	  SERVO_6, // ServoMessage
 	  SERVO_7, // ServoMessage
 
+	  AX12_W1 = 20,//AX12Write
+	  AX12_W2 ,//AX12Write
+	  AX12_W3 ,//AX12Write
+	  AX12_W4 ,//AX12Write
+	  AX12_W5 ,//AX12Write
+	  AX12_W6 ,//AX12Write
+
+	  AX12_R1 = 30,//AX12Write
+	  AX12_R2 ,//AX12Write
+	  AX12_R3 ,//AX12Write
+	  AX12_R4 ,//AX12Write
+	  AX12_R5 ,//AX12Write
+	  AX12_R6 ,//AX12Write
+
 	  STEPPER_CMD, // Stepper
 	  STEPPER_INFO, // StepperInfo
 
@@ -66,6 +80,25 @@ namespace CAN
 		int16_t _unused2;// 2 bytes
 		int32_t _unused3;// 4 bytes
 
+	};
+
+	struct AX12Write {
+		uint8_t mode; // 1 byte
+		int16_t position;// 2 bytes
+		uint8_t max_accel;// 1 byte
+		uint8_t max_speed;// 1 byte
+		uint8_t torque_enable;// 1 byte
+		uint8_t temperatureLimit;// 1 byte
+		uint8_t currentLimit;// 1 byte
+	};
+
+	struct AX12Read {
+		uint8_t hardwareErrorStatus; // 1 byte
+		int16_t current_position;// 2 bytes
+		uint8_t presentTemperature;// 1 byte
+		uint16_t presentCurrent;// 2 byte
+		uint8_t moving;// 1 byte
+		uint8_t mode;// 1 byte
 	};
 
   struct DigitalInputs {
@@ -189,3 +222,4 @@ namespace CAN
 	} ;
 	*/
 };
+
