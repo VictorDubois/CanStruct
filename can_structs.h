@@ -23,12 +23,12 @@ enum can_ids
     AX12_W5,      // AX12Write
     AX12_W6,      // AX12Write
 
-    AX12_R1 = 30, // AX12Write
-    AX12_R2,      // AX12Write
-    AX12_R3,      // AX12Write
-    AX12_R4,      // AX12Write
-    AX12_R5,      // AX12Write
-    AX12_R6,      // AX12Write
+    AX12_R1 = 30, // AX12Read
+    AX12_R2,      // AX12Read
+    AX12_R3,      // AX12Read
+    AX12_R4,      // AX12Read
+    AX12_R5,      // AX12Read
+    AX12_R6,      // AX12Read
 
     STEPPER_CMD,  // Stepper
     STEPPER_INFO, // StepperInfo
