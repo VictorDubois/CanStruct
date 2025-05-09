@@ -39,7 +39,9 @@ enum can_ids
 
     // High frequency, ~100Hz
     ODOMETRY_LIGHT,       // OdometryLight
-    ODOMETRY_XY_FLOAT,    // OdometryXY
+    ODOMETRY_XY,    	  // OdometryXY
+    ODOMETRY_XY_FLOAT,    // OdometryXYFloat
+    ODOMETRY_THETA,       // OdometryThetaAndCurrent
     ODOMETRY_THETA_FLOAT, // OdometryThetaFloat
     ODOMETRY_SPEED,       // SpeedOdometry
     ODOMETRY_SPEED_FLOAT, // SpeedOdometryFloat
@@ -179,6 +181,20 @@ struct OdometryLight
     int8_t poseY_complete;     // 1 bytes
     int16_t poseY_mm;          // 2 bytes
     int16_t angleRz_centi_deg; // 2 bytes
+};
+
+
+struct OdometryXY
+{
+    int32_t poseX_mm;          // 4 bytes
+    int32_t poseY_mm;          // 2 bytes
+};
+
+struct OdometryThetaAndCurrent
+{
+	int32_t angleRz_centi_deg; // 4 bytes
+    int16_t currentLeft;       // 2 bytes
+    int16_t currentRight;      // 2 bytes
 };
 
 struct OdometryXYFloat
