@@ -186,7 +186,7 @@ namespace CAN
     struct OdometryXY
     {
         int32_t poseX_mm; // 4 bytes
-        int32_t poseY_mm; // 2 bytes
+        int32_t poseY_mm; // 4 bytes
     };
 
     struct OdometryThetaAndCurrent
