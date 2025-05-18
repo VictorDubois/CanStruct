@@ -52,9 +52,8 @@ namespace CAN
         MOTOR_BOARD_CURRENT_INPUT, // MotorBoardCurrentInput
         MOTOR_BOARD_ENABLE,        // MotorEnable
 
-        ANALOG_SENSORS = 60,      // AnalogSensors
-        MOTOR_BOARD_BATTERY = 61, // AnalogSensors
-        DIGITAL_INPUTS,           // DigitalInputs
+        ANALOG_SENSORS = 60, // AnalogSensors
+        DIGITAL_INPUTS,      // DigitalInputs
 
         SCORE = 100 // Score
     };
