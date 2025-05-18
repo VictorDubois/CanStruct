@@ -130,10 +130,10 @@ namespace CAN
 
     struct AnalogSensors
     {
-        int16_t battery_mV; // 2 bytes
-        int16_t vacuum_1;   // 2 bytes
-        int16_t vacuum_2;   // 2 bytes
-        int16_t vacuum_3;   // 2 bytes
+        int16_t battery_power_mV; // 2 bytes
+        int16_t battery_elec_mV;  // 2 bytes
+        int16_t vacuum_1;         // 2 bytes
+        int16_t vacuum_2;         // 2 bytes
     };
 
     struct CmdVelFloat
