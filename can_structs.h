@@ -91,7 +91,7 @@ namespace CAN
     struct AX12Write
     {
         uint8_t mode;             // 1 byte
-        int16_t position;         // 2 bytes
+        uint16_t position;        // 2 bytes
         uint8_t max_accel;        // 1 byte
         uint8_t max_speed;        // 1 byte
         uint8_t torque_enable;    // 1 byte
@@ -102,7 +102,7 @@ namespace CAN
     struct AX12Read
     {
         uint8_t hardwareErrorStatus; // 1 byte
-        int16_t current_position;    // 2 bytes
+        uint16_t current_position;   // 2 bytes
         uint8_t presentTemperature;  // 1 byte
         uint16_t presentCurrent;     // 2 byte
         uint8_t moving;              // 1 byte
