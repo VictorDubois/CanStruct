@@ -55,6 +55,8 @@ namespace CAN
         ANALOG_SENSORS = 60, // AnalogSensors
         DIGITAL_INPUTS,      // DigitalInputs
 
+        OBSTACLES = 70, // Obstacles
+
         SCORE = 100 // Score
     };
 
@@ -242,6 +244,14 @@ namespace CAN
         int8_t _unused;   // 1 bytes
         int16_t _unused2; // 2 bytes
         int32_t _unused3; // 4 bytes
+    };
+
+    struct Obstacles
+    {
+        int16_t front_obs_angleRz_deg; // 2 bytes // -90 is left, 0 in front, 90 right
+        int16_t front_obs_distance_mm; // 2 bytes
+        int16_t rear_obs_angleRz_deg;  // 2 bytes // 90 to 270
+        int16_t rear_obs_distance_mm;  // 2 bytes
     };
 
 #pragma pack(pop)
