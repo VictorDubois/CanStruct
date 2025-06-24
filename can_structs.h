@@ -47,6 +47,7 @@ enum can_ids
     ODOMETRY_THETA_FLOAT, // OdometryThetaFloat
     ODOMETRY_SPEED,       // SpeedOdometry
     ODOMETRY_SPEED_FLOAT, // SpeedOdometryFloat
+	CURRENT_LIMIT,        //CurrentLimit
 
     // Low frequency
     MOTOR_BOARD_CURRENT_OUPUT, // MotorBoardCurrentOutput
@@ -227,6 +228,14 @@ struct SpeedOdometryFloat
 {
     float speedVx_m_s;   // 4 bytes
     float speedWz_rad_s; // 4 bytes
+};
+
+struct CurrentLimit
+{
+    uint16_t left_current_mA; // 2 bytes
+    uint16_t right_current_mA; // 2 bytes
+    uint16_t left_wheel_unstalled_in_ms; // 2 bytes Nb of ms until the robot's left wheel is allowed to move again
+    uint16_t right_wheel_unstalled_in_ms; // 2 bytes Nb of ms until the robot's right wheel is allowed to move again
 };
 
 struct Stepper
