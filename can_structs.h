@@ -41,6 +41,7 @@ enum can_ids
     // High frequency, ~100Hz
     ODOMETRY_LIGHT,       // OdometryLight
     ODOMETRY_XY,          // OdometryXY
+	ODOMETRY_XYum,        // OdometryXYum
     ODOMETRY_XY_FLOAT,    // OdometryXYFloat
     ODOMETRY_THETA,       // OdometryThetaAndCurrent
     ODOMETRY_THETA_FLOAT, // OdometryThetaFloat
@@ -189,6 +190,12 @@ struct OdometryXY
 {
     int32_t poseX_mm; // 4 bytes
     int32_t poseY_mm; // 4 bytes
+};
+
+struct OdometryXYum
+{
+    int32_t poseX_um; // 4 bytes
+    int32_t poseY_um; // 4 bytes
 };
 
 struct OdometryThetaAndCurrent
