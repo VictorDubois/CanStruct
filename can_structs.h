@@ -41,13 +41,13 @@ enum can_ids
     // High frequency, ~100Hz
     ODOMETRY_LIGHT,       // OdometryLight
     ODOMETRY_XY,          // OdometryXY
-	ODOMETRY_XYum,        // OdometryXYum
+    ODOMETRY_XYum,        // OdometryXYum
     ODOMETRY_XY_FLOAT,    // OdometryXYFloat
     ODOMETRY_THETA,       // OdometryThetaAndCurrent
     ODOMETRY_THETA_FLOAT, // OdometryThetaFloat
     ODOMETRY_SPEED,       // SpeedOdometry
     ODOMETRY_SPEED_FLOAT, // SpeedOdometryFloat
-	CURRENT_LIMIT,        //CurrentLimit
+    CURRENT_LIMIT,        // CurrentLimit
 
     // Low frequency
     MOTOR_BOARD_CURRENT_OUPUT, // MotorBoardCurrentOutput
@@ -60,7 +60,20 @@ enum can_ids
 
     OBSTACLES = 70, // Obstacles
 
-    SCORE = 100 // Score
+    SCORE = 100, // Score
+
+    C620_CURRENT_COMMAND = 0x200,        // C620Input (ESP id 1 to 4)
+    C620_CURRENT_COMMAND_EXTEND = 0x1FF, // C620Input (ESP id 5 to 8)
+
+    C620_OUTPUT_1 = 0x201, // C620Output
+    C620_OUTPUT_2 = 0x202, // C620Output
+    C620_OUTPUT_3 = 0x203, // C620Output
+    C620_OUTPUT_4 = 0x204, // C620Output
+    C620_OUTPUT_5 = 0x205, // C620Output
+    C620_OUTPUT_6 = 0x206, // C620Output
+    C620_OUTPUT_7 = 0x207, // C620Output
+    C620_OUTPUT_8 = 0x208  // C620Output
+
 };
 
 enum stepper_mode
@@ -232,10 +245,12 @@ struct SpeedOdometryFloat
 
 struct CurrentLimit
 {
-    uint16_t left_current_mA; // 2 bytes
-    uint16_t right_current_mA; // 2 bytes
-    uint16_t left_wheel_unstalled_in_ms; // 2 bytes Nb of ms until the robot's left wheel is allowed to move again
-    uint16_t right_wheel_unstalled_in_ms; // 2 bytes Nb of ms until the robot's right wheel is allowed to move again
+    uint16_t left_current_mA;            // 2 bytes
+    uint16_t right_current_mA;           // 2 bytes
+    uint16_t left_wheel_unstalled_in_ms; // 2 bytes Nb of ms until the robot's left wheel is allowed
+                                         // to move again
+    uint16_t right_wheel_unstalled_in_ms; // 2 bytes Nb of ms until the robot's right wheel is
+                                          // allowed to move again
 };
 
 struct Stepper
@@ -269,6 +284,23 @@ struct Obstacles
     int16_t front_obs_distance_mm; // 2 bytes
     int16_t rear_obs_angleRz_deg;  // 2 bytes // 90 to 270
     int16_t rear_obs_distance_mm;  // 2 bytes
+};
+
+struct C620Input
+{
+    int16_t current_id_1_or_5; // 2 bytes // -16384 = -20A, 0 = 0A, 16384 = 20A
+    int16_t current_id_2_or_6; // 2 bytes
+    int16_t current_id_3_or_7; // 2 bytes
+    int16_t current_id_4_or_8; // 2 bytes
+};
+
+struct C620Output
+{
+    uint16_t mechanical_angle_8192_ticks; // 2 bytes // 0 = 0deg, 8191 = 360deg
+    int16_t speed_rpm;                    // 2 bytes
+    int16_t torque;                       // 2 bytes
+    uint8_t motor_temperature_deg;        // 1 byte
+    uint8_t _unused;                      // 1 byte
 };
 
 #pragma pack(pop)
